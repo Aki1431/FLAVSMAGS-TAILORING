@@ -38,11 +38,18 @@
             btnDASHBOARD = new FontAwesome.Sharp.IconButton();
             panelLogo = new Panel();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            panelContainer = new Panel();
+            iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
+            lblTitleChildForm = new Label();
             panelTitleBar = new Panel();
-            panel1 = new Panel();
+            btnSignOut = new FontAwesome.Sharp.IconButton();
+            iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).BeginInit();
+            panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -58,7 +65,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(203, 707);
+            panelMenu.Size = new Size(257, 593);
             panelMenu.TabIndex = 0;
             // 
             // btnREPORTS
@@ -76,7 +83,7 @@
             btnREPORTS.Location = new Point(0, 520);
             btnREPORTS.Name = "btnREPORTS";
             btnREPORTS.Padding = new Padding(10, 0, 20, 0);
-            btnREPORTS.Size = new Size(203, 74);
+            btnREPORTS.Size = new Size(257, 74);
             btnREPORTS.TabIndex = 6;
             btnREPORTS.Text = "Reports";
             btnREPORTS.TextAlign = ContentAlignment.MiddleLeft;
@@ -99,7 +106,7 @@
             btnEXPENSES.Location = new Point(0, 446);
             btnEXPENSES.Name = "btnEXPENSES";
             btnEXPENSES.Padding = new Padding(10, 0, 20, 0);
-            btnEXPENSES.Size = new Size(203, 74);
+            btnEXPENSES.Size = new Size(257, 74);
             btnEXPENSES.TabIndex = 5;
             btnEXPENSES.Text = "Expenses";
             btnEXPENSES.TextAlign = ContentAlignment.MiddleLeft;
@@ -122,7 +129,7 @@
             btnSALES.Location = new Point(0, 372);
             btnSALES.Name = "btnSALES";
             btnSALES.Padding = new Padding(10, 0, 20, 0);
-            btnSALES.Size = new Size(203, 74);
+            btnSALES.Size = new Size(257, 74);
             btnSALES.TabIndex = 4;
             btnSALES.Text = "Sales";
             btnSALES.TextAlign = ContentAlignment.MiddleLeft;
@@ -145,7 +152,7 @@
             btnINVENTORY.Location = new Point(0, 298);
             btnINVENTORY.Name = "btnINVENTORY";
             btnINVENTORY.Padding = new Padding(10, 0, 20, 0);
-            btnINVENTORY.Size = new Size(203, 74);
+            btnINVENTORY.Size = new Size(257, 74);
             btnINVENTORY.TabIndex = 3;
             btnINVENTORY.Text = "Inventory";
             btnINVENTORY.TextAlign = ContentAlignment.MiddleLeft;
@@ -168,7 +175,7 @@
             btnORDERS.Location = new Point(0, 224);
             btnORDERS.Name = "btnORDERS";
             btnORDERS.Padding = new Padding(10, 0, 20, 0);
-            btnORDERS.Size = new Size(203, 74);
+            btnORDERS.Size = new Size(257, 74);
             btnORDERS.TabIndex = 2;
             btnORDERS.Text = "Orders";
             btnORDERS.TextAlign = ContentAlignment.MiddleLeft;
@@ -191,7 +198,7 @@
             btnDASHBOARD.Location = new Point(0, 150);
             btnDASHBOARD.Name = "btnDASHBOARD";
             btnDASHBOARD.Padding = new Padding(10, 0, 20, 0);
-            btnDASHBOARD.Size = new Size(203, 74);
+            btnDASHBOARD.Size = new Size(257, 74);
             btnDASHBOARD.TabIndex = 1;
             btnDASHBOARD.Text = "Dashboard";
             btnDASHBOARD.TextAlign = ContentAlignment.MiddleLeft;
@@ -206,7 +213,7 @@
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(203, 150);
+            panelLogo.Size = new Size(257, 150);
             panelLogo.TabIndex = 0;
             // 
             // iconPictureBox1
@@ -218,46 +225,116 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
             iconPictureBox1.IconColor = SystemColors.ControlText;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 180;
-            iconPictureBox1.Location = new Point(-38, -13);
+            iconPictureBox1.IconSize = 182;
+            iconPictureBox1.Location = new Point(-21, -14);
             iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(261, 180);
+            iconPictureBox1.Size = new Size(301, 182);
             iconPictureBox1.TabIndex = 0;
             iconPictureBox1.TabStop = false;
             // 
+            // panelContainer
+            // 
+            panelContainer.AutoSize = true;
+            panelContainer.BackColor = Color.FromArgb(34, 33, 74);
+            panelContainer.Dock = DockStyle.Fill;
+            panelContainer.Location = new Point(257, 122);
+            panelContainer.Name = "panelContainer";
+            panelContainer.Size = new Size(936, 471);
+            panelContainer.TabIndex = 2;
+            panelContainer.Paint += panelContainer_Paint;
+            // 
+            // iconCurrentChildForm
+            // 
+            iconCurrentChildForm.BackColor = Color.FromArgb(90, 88, 140);
+            iconCurrentChildForm.ForeColor = Color.MediumPurple;
+            iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.House;
+            iconCurrentChildForm.IconColor = Color.MediumPurple;
+            iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconCurrentChildForm.IconSize = 40;
+            iconCurrentChildForm.Location = new Point(29, 42);
+            iconCurrentChildForm.Name = "iconCurrentChildForm";
+            iconCurrentChildForm.Size = new Size(40, 40);
+            iconCurrentChildForm.TabIndex = 0;
+            iconCurrentChildForm.TabStop = false;
+            // 
+            // lblTitleChildForm
+            // 
+            lblTitleChildForm.AutoSize = true;
+            lblTitleChildForm.BackColor = Color.FromArgb(90, 88, 140);
+            lblTitleChildForm.ForeColor = Color.White;
+            lblTitleChildForm.Location = new Point(75, 51);
+            lblTitleChildForm.Name = "lblTitleChildForm";
+            lblTitleChildForm.Size = new Size(50, 20);
+            lblTitleChildForm.TabIndex = 1;
+            lblTitleChildForm.Text = "Home";
+            // 
             // panelTitleBar
             // 
-            panelTitleBar.BackColor = Color.FromArgb(26, 25, 62);
+            panelTitleBar.BackColor = Color.FromArgb(90, 88, 140);
+            panelTitleBar.Controls.Add(btnSignOut);
+            panelTitleBar.Controls.Add(lblTitleChildForm);
+            panelTitleBar.Controls.Add(iconCurrentChildForm);
+            panelTitleBar.Controls.Add(iconPictureBox2);
             panelTitleBar.Dock = DockStyle.Top;
-            panelTitleBar.Location = new Point(203, 0);
+            panelTitleBar.Location = new Point(257, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(896, 122);
+            panelTitleBar.Size = new Size(936, 122);
             panelTitleBar.TabIndex = 1;
+            panelTitleBar.Paint += panelTitleBar_Paint;
+            panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
-            // panel1
+            // btnSignOut
             // 
-            panel1.BackColor = Color.FromArgb(34, 33, 74);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(203, 122);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(896, 585);
-            panel1.TabIndex = 2;
+            btnSignOut.BackColor = Color.FromArgb(26, 25, 62);
+            btnSignOut.ForeColor = Color.Tomato;
+            btnSignOut.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnSignOut.IconColor = Color.Black;
+            btnSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSignOut.Location = new Point(830, 42);
+            btnSignOut.Name = "btnSignOut";
+            btnSignOut.Size = new Size(94, 29);
+            btnSignOut.TabIndex = 2;
+            btnSignOut.Text = "Sign Out";
+            btnSignOut.UseCompatibleTextRendering = true;
+            btnSignOut.UseVisualStyleBackColor = false;
+            btnSignOut.Click += btnSignOut_Click;
+            // 
+            // iconPictureBox2
+            // 
+            iconPictureBox2.BackColor = Color.FromArgb(90, 88, 140);
+            iconPictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            iconPictureBox2.ForeColor = SystemColors.ControlText;
+            iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconPictureBox2.IconColor = SystemColors.ControlText;
+            iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox2.IconSize = 122;
+            iconPictureBox2.Location = new Point(0, 0);
+            iconPictureBox2.Name = "iconPictureBox2";
+            iconPictureBox2.Size = new Size(936, 122);
+            iconPictureBox2.TabIndex = 3;
+            iconPictureBox2.TabStop = false;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1099, 707);
-            Controls.Add(panel1);
+            ClientSize = new Size(1193, 593);
+            Controls.Add(panelContainer);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Dashboard";
             Load += Dashboard_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconCurrentChildForm).EndInit();
+            panelTitleBar.ResumeLayout(false);
+            panelTitleBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -271,7 +348,11 @@
         private FontAwesome.Sharp.IconButton btnDASHBOARD;
         private Panel panelLogo;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private Panel panelContainer;
+        private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
+        private Label lblTitleChildForm;
         private Panel panelTitleBar;
-        private Panel panel1;
+        private FontAwesome.Sharp.IconButton btnSignOut;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
     }
 }
