@@ -36,7 +36,7 @@
             txtName = new TextBox();
             txtPassword = new TextBox();
             button1 = new Button();
-            panel1 = new Panel();
+            roundedPanel1 = new RoundedPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -55,9 +55,9 @@
             // 
             pictureBox2.BackColor = Color.White;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(523, 32);
+            pictureBox2.Location = new Point(513, 32);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(295, 156);
+            pictureBox2.Size = new Size(305, 156);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
@@ -111,13 +111,13 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // panel1
+            // roundedPanel1
             // 
-            panel1.BackColor = Color.FromArgb(37, 36, 81);
-            panel1.Location = new Point(517, 255);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(309, 181);
-            panel1.TabIndex = 7;
+            roundedPanel1.BackColor = Color.FromArgb(26, 25, 62);
+            roundedPanel1.Location = new Point(513, 247);
+            roundedPanel1.Name = "roundedPanel1";
+            roundedPanel1.Size = new Size(305, 190);
+            roundedPanel1.TabIndex = 7;
             // 
             // Login
             // 
@@ -132,8 +132,9 @@
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(roundedPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FLAVSMAGS";
@@ -153,6 +154,6 @@
         private TextBox txtName;
         private TextBox txtPassword;
         private Button button1;
-        private Panel panel1;
+        private RoundedPanel roundedPanel1;
     }
 }
