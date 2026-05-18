@@ -13,7 +13,7 @@ namespace FLAVSMAGS_TAILORING.Services
     /// </summary>
     public class ReportService
     {
-        private readonly DataManager _dataManager;
+        private readonly DatabaseManager _dataManager;
         private readonly OrderService _orderService;
         private readonly SalesService _salesService;
         private readonly InventoryService _inventoryService;
@@ -21,7 +21,7 @@ namespace FLAVSMAGS_TAILORING.Services
 
         public ReportService()
         {
-            _dataManager = DataManager.Instance;
+            _dataManager = DatabaseManager.Instance;
             _orderService = new OrderService();
             _salesService = new SalesService();
             _inventoryService = new InventoryService();

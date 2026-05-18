@@ -12,13 +12,13 @@ namespace FLAVSMAGS_TAILORING.Services
     /// </summary>
     public class InventoryService : IBaseService
     {
-        private readonly DataManager _dataManager;
+        private readonly DatabaseManager _dataManager;
 
         public event EventHandler? DataChanged;
 
         public InventoryService()
         {
-            _dataManager = DataManager.Instance;
+            _dataManager = DatabaseManager.Instance;
         }
 
         #region Inventory CRUD Operations

@@ -12,13 +12,13 @@ namespace FLAVSMAGS_TAILORING.Services
     /// </summary>
     public class SalesService : IBaseService
     {
-        private readonly DataManager _dataManager;
+        private readonly DatabaseManager _dataManager;
 
         public event EventHandler? DataChanged;
 
         public SalesService()
         {
-            _dataManager = DataManager.Instance;
+            _dataManager = DatabaseManager.Instance;
         }
 
         #region Sales Operations

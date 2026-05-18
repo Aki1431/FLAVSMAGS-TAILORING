@@ -1,7 +1,9 @@
 using System;
 using System.Windows.Forms;
-using FLAVSMAGS_TAILORING.Panels;
+using Microsoft.Data.Sqlite;
+using FLAVSMAGS_TAILORING.Data;
 using FLAVSMAGS_TAILORING.Models;
+using FLAVSMAGS_TAILORING.Panels;
 
 namespace FLAVSMAGS_TAILORING
 {
@@ -10,14 +12,15 @@ namespace FLAVSMAGS_TAILORING
         public Login()
         {
             InitializeComponent();
+            // Pressing Enter anywhere on the form clicks the login button
+            this.AcceptButton = button1;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             txtPassword.PasswordChar = '*';
-
-            // Clear any existing session
             UserSession.Instance.Logout();
+            txtName.Focus();                    // convenient starting point
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,7 +28,6 @@ namespace FLAVSMAGS_TAILORING
             string username = txtName.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // Validation
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please enter username and password.", "Validation Error",
@@ -33,41 +35,39 @@ namespace FLAVSMAGS_TAILORING
                 return;
             }
 
-            // Authentication logic (can be upgraded to database later)
             if (AuthenticateUser(username, password))
             {
-                // Create user session
                 UserSession.Instance.Login(username);
-
-                // Open Dashboard
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
-
-                // Hide login form
                 this.Hide();
             }
             else
             {
                 MessageBox.Show("Invalid Username or Password", "Login Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                // Clear password field for security
                 txtPassword.Clear();
                 txtPassword.Focus();
             }
         }
 
-        /// <summary>
-        /// Authenticate user credentials
-        /// TODO: Replace with database authentication
-        /// </summary>
         private bool AuthenticateUser(string username, string password)
         {
-            // Hardcoded credentials (upgrade to DB later)
-            return username == "admin" && password == "1234";
+            using (var conn = DatabaseHelper.GetConnection())
+            using (var cmd = new SqliteCommand(
+                "SELECT COUNT(*) FROM Users WHERE Username = @u AND PasswordHash = @p", conn))
+            {
+                cmd.Parameters.AddWithValue("@u", username);
+                cmd.Parameters.AddWithValue("@p", password);
+                object? result = cmd.ExecuteScalar();
+                if (result == null || result == DBNull.Value)
+                    return false;
+                long count = Convert.ToInt64(result);
+                return count > 0;
+            }
         }
 
-        // Keep existing empty event handlers for Designer compatibility
+        // empty designer event handlers (kept for compatibility)
         private void label1_Click(object sender, EventArgs e) { }
         private void txtName_TextChanged(object sender, EventArgs e) { }
         private void txtPassword_TextChanged(object sender, EventArgs e) { }

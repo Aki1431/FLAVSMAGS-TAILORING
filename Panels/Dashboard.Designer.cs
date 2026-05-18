@@ -42,6 +42,9 @@
             iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             lblTitleChildForm = new Label();
             panelTitleBar = new Panel();
+            button3 = new Button();
+            btnMaximize = new Button();
+            btnMinimize = new Button();
             btnSignOut = new FontAwesome.Sharp.IconButton();
             iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             panelMenu.SuspendLayout();
@@ -271,6 +274,9 @@
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(90, 88, 140);
+            panelTitleBar.Controls.Add(button3);
+            panelTitleBar.Controls.Add(btnMaximize);
+            panelTitleBar.Controls.Add(btnMinimize);
             panelTitleBar.Controls.Add(btnSignOut);
             panelTitleBar.Controls.Add(lblTitleChildForm);
             panelTitleBar.Controls.Add(iconCurrentChildForm);
@@ -283,14 +289,53 @@
             panelTitleBar.Paint += panelTitleBar_Paint;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.BackColor = SystemColors.Info;
+            button3.Location = new Point(891, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(42, 29);
+            button3.TabIndex = 6;
+            button3.Text = "⤫";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // btnMaximize
+            // 
+            btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximize.BackColor = SystemColors.Info;
+            btnMaximize.Location = new Point(843, 3);
+            btnMaximize.Name = "btnMaximize";
+            btnMaximize.Size = new Size(42, 29);
+            btnMaximize.TabIndex = 5;
+            btnMaximize.Text = "🗖";
+            btnMaximize.UseVisualStyleBackColor = false;
+            btnMaximize.Click += btnMaximize_Click;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.AccessibleName = "btnMinimize";
+            btnMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimize.BackColor = SystemColors.Info;
+            btnMinimize.BackgroundImageLayout = ImageLayout.Center;
+            btnMinimize.ForeColor = Color.DimGray;
+            btnMinimize.Location = new Point(795, 3);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(42, 29);
+            btnMinimize.TabIndex = 4;
+            btnMinimize.Text = "━";
+            btnMinimize.UseVisualStyleBackColor = false;
+            btnMinimize.Click += btnMinimize_Click;
+            // 
             // btnSignOut
             // 
-            btnSignOut.BackColor = Color.FromArgb(26, 25, 62);
-            btnSignOut.ForeColor = Color.Tomato;
+            btnSignOut.BackColor = SystemColors.Info;
+            btnSignOut.ForeColor = Color.FromArgb(0, 64, 0);
             btnSignOut.IconChar = FontAwesome.Sharp.IconChar.None;
             btnSignOut.IconColor = Color.Black;
             btnSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSignOut.Location = new Point(830, 42);
+            btnSignOut.Location = new Point(29, 90);
             btnSignOut.Name = "btnSignOut";
             btnSignOut.Size = new Size(94, 29);
             btnSignOut.TabIndex = 2;
@@ -354,5 +399,8 @@
         private Panel panelTitleBar;
         private FontAwesome.Sharp.IconButton btnSignOut;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private Button button3;
+        private Button btnMaximize;
+        private Button btnMinimize;
     }
 }

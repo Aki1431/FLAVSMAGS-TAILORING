@@ -8,10 +8,13 @@ namespace FLAVSMAGS_TAILORING
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Data.DatabaseInitializer.Initialize();   // creates tables & seeds data
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
         }
+        //// To customize application configuration such as set high DPI settings or default font,
+        //// see https://aka.ms/applicationconfiguration.
+        //ApplicationConfiguration.Initialize();
+        //Application.Run(new Login());
     }
 }
