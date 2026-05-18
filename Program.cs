@@ -10,6 +10,7 @@ namespace FLAVSMAGS_TAILORING
         {
             Data.DatabaseInitializer.Initialize();   // creates tables & seeds data
             ApplicationConfiguration.Initialize();
+            PdfSharp.Fonts.GlobalFontSettings.UseWindowsFontsUnderWindows = true;
             Application.Run(new Login());
         }
         //// To customize application configuration such as set high DPI settings or default font,
